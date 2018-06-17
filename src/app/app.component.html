@@ -1,20 +1,57 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<mat-toolbar color="primary" class="app-title" (window:resize)="onResize($event)">
+  <div>HaveFun</div>
+  <ng-container *ngIf="breakpoint != 1">
+    <span class="auto-layout-search"></span>
+    <mat-icon class="btn-search">search</mat-icon>
+    <mat-form-field>
+      <input matInput placeholder="Explore your own activity">
+    </mat-form-field>
+  </ng-container>
+</mat-toolbar>
+<mat-drawer-container >
+    <mat-drawer class="example-container" mode="side" opened="true">
+        <div class="toolbar-title"> Location 
+        </div>
+        <div class="toolbar-content">
+            <br/>
+            <mat-select placeholder="城市">
+              <mat-option>None</mat-option>
+              <mat-option *ngFor="let state of cities" [value]="state">{{state}}</mat-option>
+            </mat-select>
+        </div>
+        <br/>
+        <mat-divider> </mat-divider>
+        <div class="toolbar-title">  Date </div>
+        <div class="toolbar-content">
+            開始  
+            <mat-form-field>
+                <input matInput [matDatepicker]="startDatepicker">
+                <mat-datepicker-toggle matSuffix [for]="startDatepicker"></mat-datepicker-toggle>
+                <mat-datepicker #startDatepicker></mat-datepicker>
+            </mat-form-field>
+            <br/>
+            結束  
+            <mat-form-field>
+                <input matInput [matDatepicker]="endDatepicker">
+                <mat-datepicker-toggle matSuffix [for]="endDatepicker"></mat-datepicker-toggle>
+                <mat-datepicker #endDatepicker></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <mat-divider> </mat-divider>
+        <div class="toolbar-title">  Categories </div>
+        <div class="toolbar-content" *ngFor="let class of getClass()">
+          <mat-checkbox color="primary"> 
+            {{ spotclass.get(class) }}
+          </mat-checkbox> 
+          <br/>
+        </div> 
+        <br/>
+        <mat-divider> </mat-divider>
+    </mat-drawer>
+    <mat-drawer-content>
+      <app-spotcard (breakpoint)=breakpoint> 
+      </app-spotcard>
+    </mat-drawer-content>
+</mat-drawer-container>
 
