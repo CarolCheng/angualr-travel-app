@@ -1,4 +1,5 @@
 import { Component, OnInit, VERSION, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { TWSpotService } from './service/twspot.service';
 
 @Component({
@@ -20,7 +21,8 @@ export class AppComponent implements OnInit {
     ['13', '體育健身類'], ['14', '觀光工廠類'], ['15', '都會公園類'], ['16', '森林遊樂區類'],
     ['13', '林場類'], ['18', '其他']
   ]);
-  constructor(private twservice: TWSpotService) {
+  constructor(private twservice: TWSpotService,
+    private router: Router) {
     this.bMenuVisible = true;
 
   }
@@ -50,6 +52,9 @@ export class AppComponent implements OnInit {
     }
     this.bMenuVisible = !this.bMenuVisible;
     console.log(this.bMenuVisible);
+  }
+  onRedirect() {
+    this.router.navigate(['/spots']);
   }
   getClass() {
     return Array.from(this.spotclass.keys());

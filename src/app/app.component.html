@@ -3,7 +3,7 @@
   <button mat-icon-button (click)="onShowMenu()" *ngIf="breakpoint == 1">
     <mat-icon aria-label="show and hide the menu">menu</mat-icon>
   </button>
-  <div class="app-title">HaveFun</div>
+    <div class="app-title" (click)="onRedirect()">  HaveFun  </div>
   <ng-container *ngIf="breakpoint != 1">
     <span class="auto-layout-search"></span>
     <mat-icon class="btn-search">search</mat-icon>
@@ -58,7 +58,6 @@
     <mat-divider> </mat-divider>
   </mat-drawer>
   <mat-drawer-content>
-    <app-spotcard (breakpoint)=breakpoint>
-    </app-spotcard>
+    <router-outlet (breakpoint)=breakpoint></router-outlet>
   </mat-drawer-content>
 </mat-drawer-container>

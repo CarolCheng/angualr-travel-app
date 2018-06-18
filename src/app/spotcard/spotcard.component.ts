@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TWSpotService } from './../service/twspot.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-spotcard',
@@ -23,7 +24,8 @@ export class SpotCardComponent implements OnInit {
     ['13', '林場類'], ['18', '其他']
   ]);
 
-  constructor(private twservice: TWSpotService) {
+  constructor(private twservice: TWSpotService,
+    private router: Router) {
     this.startIndex = 0;
     this.endIndex = 10;
   }
@@ -39,12 +41,14 @@ export class SpotCardComponent implements OnInit {
       });
   }
   onSwitch(event) {
-    console.log(event);
+    // console.log(event);
     this.startIndex = (event.pageIndex) * event.pageSize;
     this.endIndex = (event.pageIndex + 1) * event.pageSize;
     this.spotshow = this.spotlist.slice(this.startIndex, this.endIndex);
-    console.log(this.spotshow);
-
+    // console.log(this.spotshow);
+  }
+  onRedirect(id) {
+    this.router.navigate(['/spots', id]);
   }
 
 }
