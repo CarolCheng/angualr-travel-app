@@ -9,8 +9,10 @@
     padding-right: 5px;
     margin-top: 5px;
 }
+
 .example-container {
     width: 300px;
+    padding-right: 15px; 
     background-color:  #FaFaFa;
 }
 .toolbar-title {

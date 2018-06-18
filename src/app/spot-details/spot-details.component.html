@@ -1,3 +1,26 @@
-<div style="height: 1000px;">
-  spot-details works!
-</div>
+<mat-card class="spotdetail">
+  <ng-container *ngIf=bready>
+    <div class="spotdetail-image">
+      <img class="spotdetail-img" src={{spot.Picture1}} alt={{spot.Name}}>
+    </div>
+    <div class="spotdetail-title">
+      {{ spot.Name }}
+    </div>
+    <div class="spotdetail-class">
+      <mat-chip-list>
+        {{ spot.Org }} &nbsp;
+        <mat-chip *ngIf="spot.Class1">{{getClass(spot.Class1)}}</mat-chip>
+        <mat-chip *ngIf="spot.Class2">{{getClass(spot.Class2)}}</mat-chip>
+      </mat-chip-list>
+    </div>
+    <div class="spotdetail-label">
+      <mat-icon>location_city</mat-icon>
+      <span style="margin-top: 5px; margin-left: 2px;"> {{ spot.Location }} &nbsp; </span>  
+      <mat-icon>date_range</mat-icon>
+      <span style="margin-top: 5px; margin-left: 2px;"> {{ spot.Start | date :'yyyy-MM-dd'}} ~ {{ spot.Start | date :'yyyy-MM-dd'}} </span>  
+    </div>
+    <div class="spotdetail-descript">
+      {{ spot.Description }}
+    </div>
+  </ng-container>
+</mat-card>

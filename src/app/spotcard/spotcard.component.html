@@ -12,8 +12,8 @@
       <mat-grid-tile class="spot-org" [colspan]="3" [rowspan]="1">
         <mat-chip-list class="spot-class">
           {{ spot.Org }} &nbsp;
-          <mat-chip *ngIf="spot.Class1">{{ spotclass.get(spot.Class1) }}</mat-chip>
-          <mat-chip *ngIf="spot.Class2">{{ spotclass.get(spot.Class2) }}</mat-chip>
+          <mat-chip *ngIf="spot.Class1">{{ getClass(spot.Class1) }}</mat-chip>
+          <mat-chip *ngIf="spot.Class2">{{ getClass(spot.Class2) }}</mat-chip>
         </mat-chip-list>
       </mat-grid-tile>
       <mat-grid-tile class="spot-info" [colspan]="3" [rowspan]="1">

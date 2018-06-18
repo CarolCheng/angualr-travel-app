@@ -1,0 +1,43 @@
+.mat-card.spotdetail {
+    min-height: 1000px;
+    padding: 0px;
+    padding-bottom: 1px;
+}
+.spotdetail-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.spotdetail-title {
+    font-size: 36px;
+    color: #9013FE;
+    font-family: Roboto-Bold;
+    font-weight: bold;
+    padding: 10px 53px;
+}
+.spotdetail-class {
+    font-size: 16px;
+    font-family: Roboto-Bold;
+    line-height: 24px;
+    padding: 10px 60px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.spotdetail-label {
+    font-size: 16px;
+    font-family: Roboto-Bold;
+    padding: 0px 55px;
+    display: flex;
+    margin: 0px !important;
+}
+.spotdetail-descript {
+    font-size: 16px;
+    font-family: Roboto-Regular;
+    line-height: 24px;
+    padding: 25px 55px;
+}
+.spotdetail-image {
+    height: 400px;
+    margin: 0px;
+    padding: 0px;
+}

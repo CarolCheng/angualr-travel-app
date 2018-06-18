@@ -20,7 +20,8 @@ import {
   MatSelectModule,
   MatDatepickerModule,
   MatCheckboxModule,
-  MatButtonModule } from '@angular/material';
+  MatButtonModule,
+  MatListModule } from '@angular/material';
 
 
 
@@ -56,6 +57,7 @@ import { SpotDetailsComponent } from './spot-details/spot-details.component';
     MatDatepickerModule,
     MatCheckboxModule,
     MatButtonModule,
+    MatListModule,
     AppRoutingModule
   ],
   providers: [

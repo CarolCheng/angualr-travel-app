@@ -48,6 +48,6 @@
 .mat-chip-list-wrapper {
     margin: 4px;
 }
-.mat-card {
-    cursor: pointer;
+.mat-list .mat-list-item .mat-list-item-content {
+    padding: 0px !important;
 }

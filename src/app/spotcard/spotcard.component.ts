@@ -16,13 +16,6 @@ export class SpotCardComponent implements OnInit {
   startIndex: number;
   endIndex: number;
   spotshow: any;
-  spotclass =  new Map([
-    ['1', '文化類'], ['2', '生態類'], ['3', '古蹟類'], ['4', '生態類'],
-    ['5', '藝術類'], ['6', '小吃/特產類'], ['7', '國家公園類'], ['8', '國家風景區類'],
-    ['9', '休閒農業類'], ['10', '溫泉類'], ['11', '自然風景類'], ['12', '遊憩類'],
-    ['13', '體育健身類'], ['14', '觀光工廠類'], ['15', '都會公園類'], ['16', '森林遊樂區類'],
-    ['13', '林場類'], ['18', '其他']
-  ]);
 
   constructor(private twservice: TWSpotService,
     private router: Router) {
@@ -33,9 +26,9 @@ export class SpotCardComponent implements OnInit {
   ngOnInit() {
     this.twservice.get()
       .then((data: any) => {
-        //console.log(data);
-        this.spotlist = data.Info;
-        this.spotcount = data.Info.length;
+        console.log(data);
+        this.spotlist = data.Infos.Info;
+        this.spotcount = data.Infos.Info.length;
         this.spotshow = this.spotlist.slice(0, 10);
         //console.log(this.spotcount);
       });
@@ -49,6 +42,9 @@ export class SpotCardComponent implements OnInit {
   }
   onRedirect(id) {
     this.router.navigate(['/spots', id]);
+  }
+  getClass(id) {
+    return this.twservice.getSpotClass().get(id);
   }
 
 }
