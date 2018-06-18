@@ -19,7 +19,8 @@ import {
   MatDividerModule,
   MatSelectModule,
   MatDatepickerModule,
-  MatCheckboxModule } from '@angular/material';
+  MatCheckboxModule,
+  MatButtonModule } from '@angular/material';
 
 
 
@@ -49,7 +50,8 @@ import { SpotCardComponent } from './spotcard/spotcard.component';
     MatDividerModule,
     MatSelectModule,
     MatDatepickerModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatButtonModule
   ],
   providers: [
     TWSpotService,

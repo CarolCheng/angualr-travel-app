@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
   matVersion: string = '5.1.0';
   breakpoint: number;
   cities: any;
+  bMenuVisible: boolean;
   spotclass =  new Map([
     ['1', '文化類'], ['2', '生態類'], ['3', '古蹟類'], ['4', '生態類'],
     ['5', '藝術類'], ['6', '小吃/特產類'], ['7', '國家公園類'], ['8', '國家風景區類'],
@@ -20,10 +21,11 @@ export class AppComponent implements OnInit {
     ['13', '林場類'], ['18', '其他']
   ]);
   constructor(private twservice: TWSpotService) {
+    this.bMenuVisible = true;
 
   }
   ngOnInit() {
-    this.breakpoint = (window.innerWidth <= 400) ? 1 : 2;
+    this.breakpoint = (window.innerWidth <= 500) ? 1 : 2;
     this.twservice.getCities()
     .then((temp: any) => {
       // console.log(temp.data);
@@ -33,7 +35,21 @@ export class AppComponent implements OnInit {
   }
 
   onResize(event) {
-    this.breakpoint = (event.target.innerWidth <= 400) ? 1 : 2;
+    this.breakpoint = (event.target.innerWidth <= 500) ? 1 : 2;
+    if (this.breakpoint === 1 && this.bMenuVisible) {
+      this.bMenuVisible = false;
+    }
+    if (this.breakpoint === 2 && !this.bMenuVisible) {
+      this.bMenuVisible = true;
+    }
+  }
+  onShowMenu() {
+    if (this.breakpoint === 2) {
+      this.bMenuVisible = true;
+      return;
+    }
+    this.bMenuVisible = !this.bMenuVisible;
+    console.log(this.bMenuVisible);
   }
   getClass() {
     return Array.from(this.spotclass.keys());

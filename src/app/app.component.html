@@ -1,6 +1,9 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<mat-toolbar color="primary" class="app-title" (window:resize)="onResize($event)">
-  <div>HaveFun</div>
+<mat-toolbar color="primary" (window:resize)="onResize($event)">
+  <button mat-icon-button (click)="onShowMenu()" *ngIf="breakpoint == 1">
+    <mat-icon aria-label="show and hide the menu">menu</mat-icon>
+  </button>
+  <div class="app-title">HaveFun</div>
   <ng-container *ngIf="breakpoint != 1">
     <span class="auto-layout-search"></span>
     <mat-icon class="btn-search">search</mat-icon>
@@ -9,49 +12,53 @@
     </mat-form-field>
   </ng-container>
 </mat-toolbar>
-<mat-drawer-container >
-    <mat-drawer class="example-container" mode="side" opened="true">
-        <div class="toolbar-title"> Location 
-        </div>
-        <div class="toolbar-content">
-            <br/>
-            <mat-select placeholder="城市">
-              <mat-option>None</mat-option>
-              <mat-option *ngFor="let state of cities" [value]="state">{{state}}</mat-option>
-            </mat-select>
-        </div>
-        <br/>
-        <mat-divider> </mat-divider>
-        <div class="toolbar-title">  Date </div>
-        <div class="toolbar-content">
-            開始  
-            <mat-form-field>
-                <input matInput [matDatepicker]="startDatepicker">
-                <mat-datepicker-toggle matSuffix [for]="startDatepicker"></mat-datepicker-toggle>
-                <mat-datepicker #startDatepicker></mat-datepicker>
-            </mat-form-field>
-            <br/>
-            結束  
-            <mat-form-field>
-                <input matInput [matDatepicker]="endDatepicker">
-                <mat-datepicker-toggle matSuffix [for]="endDatepicker"></mat-datepicker-toggle>
-                <mat-datepicker #endDatepicker></mat-datepicker>
-            </mat-form-field>
-        </div>
-        <mat-divider> </mat-divider>
-        <div class="toolbar-title">  Categories </div>
-        <div class="toolbar-content" *ngFor="let class of getClass()">
-          <mat-checkbox color="primary"> 
-            {{ spotclass.get(class) }}
-          </mat-checkbox> 
-          <br/>
-        </div> 
-        <br/>
-        <mat-divider> </mat-divider>
-    </mat-drawer>
-    <mat-drawer-content>
-      <app-spotcard (breakpoint)=breakpoint> 
-      </app-spotcard>
-    </mat-drawer-content>
+<mat-toolbar *ngIf="breakpoint == 1">
+  <mat-icon class="btn-search">search</mat-icon>
+  <mat-form-field>
+    <input matInput placeholder="Explore your own activity">
+  </mat-form-field>
+</mat-toolbar>
+<mat-drawer-container>
+  <mat-drawer class="example-container" mode="side" opened="{{bMenuVisible}}">
+    <div class="toolbar-title"> Location
+    </div>
+    <div class="toolbar-content">
+      <br/>
+      <mat-select placeholder="城市">
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let state of cities" [value]="state">{{state}}</mat-option>
+      </mat-select>
+    </div>
+    <br/>
+    <mat-divider> </mat-divider>
+    <div class="toolbar-title"> Date </div>
+    <div class="toolbar-content">
+      開始
+      <mat-form-field>
+        <input matInput [matDatepicker]="startDatepicker">
+        <mat-datepicker-toggle matSuffix [for]="startDatepicker"></mat-datepicker-toggle>
+        <mat-datepicker #startDatepicker></mat-datepicker>
+      </mat-form-field>
+      <br/> 結束
+      <mat-form-field>
+        <input matInput [matDatepicker]="endDatepicker">
+        <mat-datepicker-toggle matSuffix [for]="endDatepicker"></mat-datepicker-toggle>
+        <mat-datepicker #endDatepicker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <mat-divider> </mat-divider>
+    <div class="toolbar-title"> Categories </div>
+    <div class="toolbar-content" *ngFor="let class of getClass()">
+      <mat-checkbox color="primary">
+        {{ spotclass.get(class) }}
+      </mat-checkbox>
+      <br/>
+    </div>
+    <br/>
+    <mat-divider> </mat-divider>
+  </mat-drawer>
+  <mat-drawer-content>
+    <app-spotcard (breakpoint)=breakpoint>
+    </app-spotcard>
+  </mat-drawer-content>
 </mat-drawer-container>
-

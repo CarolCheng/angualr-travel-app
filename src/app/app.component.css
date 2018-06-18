@@ -26,8 +26,14 @@
     padding-left: 40px;
     padding-top: 10px;
 }
-@media (max-width: 600px) {
+@media (max-width: 500px) {
     .app-title {
         justify-content: center;
+        text-align: center;
+        width: inherit;
+    }
+    .btn-user {
+        -ms-flex: 1 1 auto;
+        flex: 1 1 auto;
     }
   }
