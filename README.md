@@ -5,8 +5,9 @@
 - The City Search
 - The Open Hour
 <p align="center">
-  <img src="src/assets/images/readme/preview.png" alt="Angular 6 Material Travel App" width="800" height="577"/>
+  <img src="src/assets/images/readme/preview.png" alt="Angular 6 Material Travel App" />
 </p>
+
 ## Live Demo
 
 [GitHub Page](https://carolcheng.github.io/angualr-travel-app/) | 
