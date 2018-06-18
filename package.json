@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy:ngh": "ng build --prod && ngh"
+    "deploy:ngh": "ng build --prod --base-href='https://carolcheng.github.io/angualr-travel-app/' && ngh"
   },
   "private": true,
   "dependencies": {

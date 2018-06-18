@@ -1,14 +1,20 @@
 # AngualrTravelApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.7.
+ Based on [設計稿](https://hexschool.github.io/THE_F2E_Design/week2-filter/), the Taiwan travel web application are built Angular 6 and Angular Material 6.2. The goal is to show how to filter the json data array. It also features:
+- The Keyword Search
+- The City Search
+- The Open Hour
+<p align="center">
+  <img src="src/assets/images/readme/preview.png" alt="Angular 6 Material Travel App" width="800" height="577"/>
+</p>
+## Live Demo
 
-## Development server
+[GitHub Page](https://carolcheng.github.io/angualr-travel-app/) | 
+[Source Code](https://github.com/CarolCheng/angualr-travel-app)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Open API
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+[觀光資訊資料庫](https://data.gov.tw/dataset/7778)
 
 ## Build
 

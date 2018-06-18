@@ -35,7 +35,7 @@ export class AppComponent implements OnInit {
   onResize(event) {
     this.breakpoint = (event.target.innerWidth <= 400) ? 1 : 2;
   }
-  getClass(map){
+  getClass() {
     return Array.from(this.spotclass.keys());
   }
 }
